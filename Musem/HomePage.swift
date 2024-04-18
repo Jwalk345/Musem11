@@ -7,8 +7,12 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct HomePage: View {
   @State var texthere = ""
+    @State var texthere1 = ""
+    @State var texthere2 = ""
+    @State var texthere3 = ""
+    @State var texthere4 = ""
     var body: some View {
         ZStack{
             Color(.black)
@@ -28,7 +32,7 @@ struct SwiftUIView: View {
                 .background(.white)
                 .bold()
                 .padding()
-            
+                ScrollView{
                 HStack{
                     Image("icon")
                         .scaledToFit()
@@ -48,7 +52,7 @@ struct SwiftUIView: View {
                     
                     
                         Form{
-                            TextField("Name", text: $texthere)
+                            TextField("Name", text: $texthere1)
                                 .background(.white)
                         }.background(.gray)
                             .cornerRadius(10)
@@ -61,25 +65,25 @@ struct SwiftUIView: View {
                     
                     
                         Form{
-                            TextField("Name", text: $texthere)
+                            TextField("Name", text: $texthere2)
                                 .background(.white)
                         }.background(.gray)
                             .cornerRadius(10)
                             .frame(width: 400, height: 104, alignment: .trailing)
                     
                 }
-                HStack{
-                    Image("icon")
-                        .scaledToFit()
-                    
-                    
+                    HStack{
+                        Image("icon")
+                            .scaledToFit()
+                        
+                        
                         Form{
-                            TextField("Name", text: $texthere)
+                            TextField("Name", text: $texthere3)
                                 .background(.white)
                         }.background(.gray)
                             .cornerRadius(10)
                             .frame(width: 400, height: 104, alignment: .trailing)
-                    
+                    }
                 }
             }
             
@@ -92,5 +96,5 @@ struct SwiftUIView: View {
 }
 
 #Preview {
-    SwiftUIView()
+    HomePage()
 }

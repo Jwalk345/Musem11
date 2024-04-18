@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
-            Color(.black)
-                .ignoresSafeArea()
+        TabView{
+            HomePage()
+                .tabItem {
+                Image(systemName: "house")
+                    Text("Order")}
             
+                
+            
+            
+        }.onAppear() {
+            UITabBar.appearance()
             
         }
-      
-        
+       
     }
 }
 
