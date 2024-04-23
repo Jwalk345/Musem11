@@ -2,8 +2,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var emailID: String = ""
-    @State private var password: String = ""
+    @State var emailID: String = ""
+    @State var password: String = ""
     
     var body: some View {
         ZStack {
@@ -23,13 +23,13 @@ struct LoginView: View {
                 
                 TextField("Email", text: $emailID)
                     .padding()
-                    .background(Color.white.opacity(0.2))
+                    .background(Color.white.opacity(0.4))
                     .cornerRadius(5)
                     .padding(.horizontal, 20)
                 
                 SecureField("Password", text: $password)
                     .padding()
-                    .background(Color.white.opacity(0.2))
+                    .background(Color.white.opacity(0.4))
                     .cornerRadius(5)
                     .padding(.horizontal, 20)
     
