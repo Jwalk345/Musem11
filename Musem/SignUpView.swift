@@ -8,17 +8,27 @@ struct SignUpView: View {
     @State private var image: Image? = Image(systemName: "person.circle.fill") // Default profile icon
     @State private var showingImagePicker = false
     @State var userName: String = ""
-    @State private var birthDate: Date = Date()
+    @State private var showingStatePicker = false
     //
     @State var createAccount: Bool = false
     @State private var showingDatePicker = false
     // DateFormatter to format the date display
-    private let dateFormatter: DateFormatter = {
+    private let dateRange: ClosedRange<Date> = {
+            let calendar = Calendar.current
+            let startComponents = DateComponents(year: 1900, month: 1, day: 1)
+            let endComponents = DateComponents(year: Calendar.current.component(.year, from: Date()) + 50, month: 12, day: 31)
+            return (calendar.date(from: startComponents) ?? Date())...(calendar.date(from: endComponents) ?? Date())
+        }()
+        
+        private let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateStyle = .short // Or ".long" for a more detailed date
             return formatter
         }()
-    
+    // State Picker
+    @State private var birthDate: Date = Date()
+       let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+       @State private var selectedState = "Alabama"
     
     var body: some View {
         ZStack {
@@ -62,37 +72,79 @@ struct SignUpView: View {
                     .background(Color.white.opacity(0.4))
                     .cornerRadius(5)
                     .padding(.horizontal, 20)
-                Button(action: {
-                                  self.showingDatePicker.toggle()
-                              }) {
-                                  HStack {
-                                      Text(showingDatePicker ? "Selecting Date..." : dateFormatter.string(from: birthDate))
-                                          .foregroundColor(.black)  // Text color inside the "TextField"
-                                      Spacer()
-                                  }
-                                  .padding()
-                                  .background(Color.white.opacity(0.4))  // Background like a TextField
-                                  .cornerRadius(5)
-                                  .padding(.horizontal, 20)
-                              }
-                              
-                              if showingDatePicker {
-                                  DatePicker("Date of Birth", selection: $birthDate, in: ...Date(), displayedComponents: .date)
-                                      .datePickerStyle(WheelDatePickerStyle())
-                                      .labelsHidden()
-                                      .padding()
-                                      .background(Color.white.opacity(0.5))
-                                      .cornerRadius(8)
-                                      .padding(.horizontal, 20)
-                                  
-                                  Button("Done") {
-                                      self.showingDatePicker = false
-                                  }
-                                  .foregroundColor(.white)
-                                  .padding()
-                                  .background(Color.green)
-                                  .cornerRadius(8)
-                              }
+                HStack{
+                    VStack{
+                        Button(action: {
+                            self.showingDatePicker.toggle()
+                        }) {
+                            HStack {
+                                Text(showingDatePicker ? "Selecting Date..." : dateFormatter.string(from: birthDate))
+                                    .foregroundColor(.black)
+                                    .multilineTextAlignment(.center)
+                                Spacer()
+                            }
+                            .padding()
+                            .background(Color.white.opacity(0.4))
+                            .cornerRadius(5)
+                         
+                            .frame(width: 150)
+                        }
+                        
+                        if showingDatePicker {
+                            DatePicker("Date of Birth", selection: $birthDate, in: dateRange, displayedComponents: .date)
+                                .datePickerStyle(WheelDatePickerStyle())
+                                .labelsHidden()
+                                .padding(.leading, 150)
+                                .background(Color.white.opacity(0.5))
+                                .cornerRadius(8)
+                                
+                            
+                            Button("Done") {
+                                self.showingDatePicker = false
+                            }
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.mpurple)
+                            .cornerRadius(8)
+                        }
+                    }
+                    VStack{
+                        Button(action: {
+                            showingStatePicker.toggle()
+                        }) {
+                            HStack {
+                                Text(showingStatePicker ? "Selecting State..." : selectedState)
+                                    .foregroundColor(.black)
+                                Spacer()
+                            }
+                            .padding()
+                            .background(Color.white.opacity(0.4))
+                            .cornerRadius(5)
+                            .frame(width: 200)
+                        }
+                        
+                        if showingStatePicker {
+                            Picker("Select State", selection: $selectedState) {
+                                ForEach(states, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            .labelsHidden()
+                            .pickerStyle(WheelPickerStyle())
+                            .background(Color.white.opacity(0.5))
+                            .cornerRadius(8)
+                            .padding(.horizontal, 20)
+                            
+                            Button("Done") {
+                                showingStatePicker = false
+                            }
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.mpurple)
+                            .cornerRadius(8)
+                        }
+                    }
+                }
                 HStack {
                     Text("Forgot your password?")
                         .font(.custom("Roboto-Regular", size: 16))

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchPage: View {
     @State private var searchText = ""
-
+    
     var body: some View {
         ZStack {
             Color("background")
@@ -23,25 +23,384 @@ struct SearchPage: View {
                         .padding()
                 }
                 .scaledToFit()
-
+                
                 Divider()
                     .background(Color.white)
                     .bold()
                     .padding()
                 Text("Search")
                     .font(.custom("Exo2-Bold", size: 36))
-                    .padding()
+                    .padding(.horizontal)
                     .foregroundStyle(Color.white)
                     .hAlign(.topLeading)
                 ScrollView {
                     SearchBar(text: $searchText)
-                        .padding()
                 }
+                Text("Categories")
+                    .font(.custom("Lato-Regular", size: 24))
+                    .foregroundColor(.white)
+                    .hAlign(.leading)
+                    .padding()
+                ScrollView(.horizontal){
+                    HStack{
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Singer")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Rapper")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Musician")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack {
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 120, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Producer")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    } // end of hstack
+                }
+                .padding()
+                Text("Genre")
+                    .font(.custom("Lato-Regular", size: 24))
+                    .foregroundColor(.white)
+                    .hAlign(.leading)
+                    .padding()
+                ScrollView(.horizontal){
+                    HStack{
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Pop")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Rap")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("RnB")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack {
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Jazz")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 110, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 110, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Country")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        ZStack{
+                            Rectangle()
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color.mblue, Color.mpurple]),
+                                        center: .center,
+                                        startRadius: -20,
+                                        endRadius: 120
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0)]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 100, height: 66)
+                                .cornerRadius(24)
+                            
+                            Button() {
+                                // Handle login logic here
+                            } label: {
+                                Text("Rock")
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .hAlign(.center)
+                                    .font(.custom("Lato-Regular", size: 24))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    } // end of hstack
+                }
+                .padding()
             }
+            
         }
     }
 }
-
 struct SearchBar: View {
     @Binding var text: String
     @State private var isEditing = false
@@ -93,6 +452,7 @@ struct SearchBar: View {
            
         }
     }
+
 
 #Preview {
     SearchPage()
