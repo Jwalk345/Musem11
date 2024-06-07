@@ -10,10 +10,33 @@ import SwiftUI
 struct NotificationPage: View {
     var body: some View {
         ZStack{
-            Color("background")
+            Color("white")
                 .ignoresSafeArea()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Notification")
         }
+    }
+}
+struct NotificationView: View {
+    @State private var notifications = [
+        "Shawn commented on your post",
+        "DJ followed you",
+        "Lyric liked your post",
+        "Ant reposted your post",
+        "Kelly requested to follow you",
+        "Ray shared a song", 
+        "Mike shared a playlist"
+        
+        
+         
+        
+
+        
+        
+    ]
+    
+    var body:  some View {
+        Text ("Notification")
+        
     }
 }
 
