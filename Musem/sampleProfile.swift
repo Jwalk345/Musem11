@@ -39,6 +39,7 @@ struct sampleProfile: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.white, lineWidth: 4))
                             .shadow(radius: 3)
+                            .hAlign(.center)
                     } else {
                         Image(systemName: "person.circle.fill")
                             .resizable()
@@ -47,6 +48,7 @@ struct sampleProfile: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.white, lineWidth: 4))
                             .shadow(radius: 3)
+                            .hAlign(.center)
                     }
                     
                     VStack(alignment: .leading) {
@@ -90,10 +92,10 @@ struct sampleProfile: View {
                 }
                 .padding(.bottom)
                 Text("Social Media")
-                    .font(.custom("Lato-Regular", size: 24))
+                    .font(.custom("Exo2-Bold", size: 26))
                     .foregroundColor(.white)
-                    .hAlign(.leading)
                     .padding(.horizontal)
+                    .hAlign(.leading)
                 
                 ScrollView(.horizontal) {
                     HStack {
@@ -106,10 +108,10 @@ struct sampleProfile: View {
                 .padding(.horizontal)
 
                 Text("Recent Collabs")
-                    .font(.custom("Lato-Regular", size: 24))
+                    .font(.custom("Exo2-Bold", size: 26))
                     .foregroundColor(.white)
-                    .hAlign(.leading)
                     .padding(.horizontal)
+                    .hAlign(.leading)
                 
                 ScrollView(.horizontal) {
                     HStack {
@@ -122,6 +124,16 @@ struct sampleProfile: View {
                     }
                 }
                 .padding(.horizontal)
+                Divider()
+                    .background(Color.white)
+                    .bold()
+                    .padding()
+                
+                Text("Posts")
+                    .font(.custom("Exo2-Bold", size: 26))
+                    .foregroundColor(.white)
+                    .padding(.horizontal)
+                    .hAlign(.leading)
             }
         }
     }
