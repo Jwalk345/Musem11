@@ -17,10 +17,10 @@ struct SearchPage: View {
             VStack {
                 HStack {
                     Image("icon")
-                        .padding()
+                        .padding(.leading)
                     Spacer(minLength: 100)
                     Image("icon2")
-                        .padding()
+                        .padding(.trailing)
                 }
                 .scaledToFit()
                 

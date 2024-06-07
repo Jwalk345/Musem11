@@ -23,18 +23,18 @@ struct LoginView: View {
                 
                 TextField("Email", text: $emailID)
                     .padding()
-                    .background(Color.white.opacity(0.4))
-                    .cornerRadius(5)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(15)
                     .padding(.horizontal, 20)
-                
+                    .frame(width: 330)
                 SecureField("Password", text: $password)
                     .padding()
-                    .background(Color.white.opacity(0.4))
-                    .cornerRadius(5)
+                    .background(Color.white.opacity(0.8))
+                    .cornerRadius(15)
                     .padding(.horizontal, 20)
+                    .frame(width: 330)
     
                 HStack{
-                    
                     Text("Forgot your password?")
                         .font(.custom("Roboto-Regular", size: 16))
                         .foregroundColor(.white)
